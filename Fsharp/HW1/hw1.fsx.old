@@ -89,28 +89,11 @@ printfn "but 9 is not in the list: %b" (isIn 9 l1)
 (* *** Testing *** *)
 
 (* remove: int -> ilist -> ilist *)
-(*
-let remove x l =
-    match l with
-    | E -> l
-    | L(h, t) ->
-            if (h = x) then
-            
-                remove 
-*)
+
 
 (* move : ilist -> ilist -> ilist *)
 
-(*
-let rec move l1 l2 =
-    match l1 with
-    | E -> l1 := l2
-    | L(h, t) -> move t l2
-//let l1 = L(1, L(2, L(3, E)))
-let l2 = L(4, (L(5, L(6, E))))
-printfn "here"
-printfn "move l1 l2: %A" (move l1 l2)
-*)
+
 (* reverse : ilist -> ilist *)
 
 
@@ -130,49 +113,12 @@ let rec eval (e : expr) : int =
     | Prim("+", e1, e2) -> eval e1 + eval e2
     | Prim("*", e1, e2) -> eval e1 * eval e2
     | Prim("-", e1, e2) -> eval e1 - eval e2
-
     | Prim _ -> failwith "unknown primitive"
 
 
 (* eval1 : expr -> int *)
-let rec eval1 (e : expr) : int =
-    match e with
-    | CstI i -> i
-    | Prim("+", e1, e2) -> eval1 e1 + eval1 e2
-    | Prim("*", e1, e2) -> eval1 e1 * eval1 e2
-    | Prim("-", e1, e2) -> eval1 e1 - eval1 e2
 
-    | Prim("<", e1, e2) -> 
-            if ((eval1 e1) < (eval1 e2)) then
-                    1
-            else
-                    0
 
-    | Prim(">", e1, e2) -> 
-            if ((eval1 e1) > (eval1 e2)) then
-                    1
-            else
-                    0
-                    
-    | Prim("==", e1, e2) -> 
-            if ((eval1 e1) = (eval e2)) then
-                    1
-            else
-                    0
-    | Prim("max", e1, e2) ->
-            if ( (eval1 e1) > (eval1 e2)) then
-                    eval1 e1
-            else
-                    eval1 e2
-
-    | Prim("min", e1, e2) ->
-            if ( (eval1 e1) < (eval1 e2)) then
-                    eval1 e1
-            else
-                    eval1 e2
-
-    | Prim _ -> failwith "unknown primitive"
-    
 (* type expr2 *)
 
 

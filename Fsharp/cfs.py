@@ -17,3 +17,5 @@ status = os.system("fsharpc " + fsharp_source)
 
 if status == 0:
     os.system("chmod +x " + executable)
+else:
+    quit(1)
